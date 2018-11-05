@@ -239,7 +239,7 @@ most_files_shouldnt_have_tabs = Standard(dict(
     check=lintcheck('EXTRA0005'),
     name="Don't use tabs in almost anything that isn't a Makefile",
     types=["playbook", "task", "handler", "rolevars", "defaults", "meta",
-           "groupvars", "hostvars", "inventory", "template"]
+           "groupvars", "hostvars", "inventory"]
 ))
 
 dont_delegate_to_localhost = Standard(dict(
