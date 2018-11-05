@@ -57,17 +57,12 @@ rolesfile_should_be_in_yaml = Standard(dict(
     types=["rolesfile"]
 ))
 
-role_must_contain_meta_main = Standard(dict(
-    name="Roles must contain suitable meta/main.yml",
-    check=lintcheck('EXTRA0012'),
-    types=["meta"]
-))
-
-role_meta_main_must_contain_info = Standard(dict(
-    name="Roles meta/main.yml must contain important info",
-    check=lintcheck('EXTRA0013'),
-    types=["meta"]
-))
+# This unfortunately has false positives
+#role_must_contain_meta_main = Standard(dict(
+#    name="Roles must contain suitable meta/main.yml",
+#    check=lintcheck('EXTRA0012'),
+#    types=["meta"]
+#))
 
 variables_should_contain_whitespace = Standard(dict(
     name="Variable uses should contain whitespace",
@@ -244,8 +239,7 @@ most_files_shouldnt_have_tabs = Standard(dict(
     check=lintcheck('EXTRA0005'),
     name="Don't use tabs in almost anything that isn't a Makefile",
     types=["playbook", "task", "handler", "rolevars", "defaults", "meta",
-           "code", "groupvars", "hostvars", "inventory", "doc", "template",
-           "file"]
+           "groupvars", "hostvars", "inventory", "template"]
 ))
 
 dont_delegate_to_localhost = Standard(dict(
@@ -304,8 +298,7 @@ ansible_lint_min_version = '3.5.1'
 
 standards = [
     rolesfile_should_be_in_yaml,
-    role_must_contain_meta_main,
-    role_meta_main_must_contain_info,
+    #role_must_contain_meta_main,
     become_rather_than_sudo,
     variables_should_contain_whitespace,
     commands_should_be_idempotent,
